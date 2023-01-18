@@ -1,0 +1,12 @@
+<div class="d-flex flex-column flex-wrap">
+    <h5 class="fs-5">Informe o CPF do Futuro Cooperado(a)</h5>
+    <p class="fst-italic">Se necessario, ocê poderá duplicar uma conta existente ou pausar e retornar este cadastro
+        futuramente</p>
+    <div class="col-md-12 col-lg-5">
+        <label class="form-label fw-bold mb-0" for="ftgInputCpf">CPF</label>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" id="ftgInputCpf" placeholder="000.000.000-00" mask="000.000.000-00" [(ngModel)]="cpf">
+            <button class="btn btn-primary" type="button" (click)="onConsultarCpf()">Consultar<i class="fas fa-search ms-2 ml-2"></i></button>
+        </div>
+    </div>
+</div>

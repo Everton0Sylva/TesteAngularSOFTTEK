@@ -1,0 +1,38 @@
+<div class="h-90 d-grid">
+    <app-wizardsteps [setSteps]="steps" [currentStep]="currentStep"></app-wizardsteps>
+
+
+    <div class="d-flex ms-3" id="stepsContent" [ngSwitch]="currentStep">
+        <div id="step1" *ngSwitchDefault>
+            <app-search (resultCPF)="onReceivedCPF($event)"></app-search>
+        </div>
+        <div id="step2" *ngSwitchCase="1">
+            <app-validation [resultCPF]="currentCPF"
+                (validatedCooperated)="currentCooperated = $event"></app-validation>
+        </div>
+        <div id="step3" *ngSwitchCase="2" class="col-12">
+            <div class="d-flex flex-column align-items-center justify-content-around flex-wrap">
+                <div class="text-success text-center" *ngIf="currentCooperated != undefined">
+                    <i class="fas fa-check-square fa-8x"></i>
+
+                    <h4 class="fs-4">Cooperado incluido no sistema com Sucesso!</h4>
+                </div>
+
+                <div class="text-danger text-center" *ngIf="currentCooperated == undefined">
+                    <i class="fas fa-window-close fa-8x"></i>
+                    <h4 class="fs-4">Cooperado não incluido,<br> Verifique o erro e tente novamente!
+                    </h4>
+                </div>
+                <a role="button" (click)="currentStep = 0" class="btn btn-secondary mt-5">Inicio<i
+                        class="fas fa-house-user ms-2 ml-2"></i></a>
+
+            </div>
+        </div>
+
+        <div class="d-block position-absolute bottom-0" *ngIf="currentStep == 1">
+            <div class="d-flex flex-row mb-3">
+                <button class="btn btn-primary" (click)="onAddCooperated()">Iniciar Nova Admissão</button>
+                <button class="btn btn-outline-primary ms-3" disabled>Dicas para Admissão</button>
+            </div>
+        </div>
+    </div>

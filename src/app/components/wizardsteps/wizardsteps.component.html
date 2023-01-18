@@ -1,0 +1,7 @@
+<div class="d-flex justify-content-center">
+    <div class="col-8 text-center pt-1" id="wizardTab" role="tablist">
+        <ul id="progressbar">
+            <li [id]="step.name" [ngClass]="{'active': currentStep >= idx}" *ngFor="let step of steps; let idx = index"><strong>{{step.label}}</strong></li>
+        </ul>
+    </div>
+</div>

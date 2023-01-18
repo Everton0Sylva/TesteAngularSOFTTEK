@@ -1,0 +1,9 @@
+<nav class="mt-2">
+    <h5 class="text-uppercase">{{ currentRoute }}</h5>
+    <ol class="breadcrumb pt-0">
+        <li class="breadcrumb-item" *ngFor="let sub of pathArr; let i=index" [hidden]="i >= (pathArr.length-1)">
+            <a>{{ sub }}</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">{{ currentRoute }}</li>
+    </ol>
+</nav>
